@@ -16,23 +16,21 @@ public class IPokemonMetadataProviderTest {
     PokemonMetadata pmd2;
 
     @Before
-    public void start(){
+    public void start() throws PokedexException {
         pmdp = Mockito.mock(IPokemonMetadataProvider.class);
         pmd1 = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         pmd2 = new PokemonMetadata(133, "Aquali", 186, 168, 260);
-    }
 
-    @Test
-    public void testGetPokemonMetadata() throws PokedexException{
         Mockito.when(pmdp.getPokemonMetadata(0)).thenReturn(pmd1);
         Mockito.when(pmdp.getPokemonMetadata(133)).thenReturn(pmd2);
 
         Mockito.doThrow(new PokedexException("Index Invalide"))
                 .when(pmdp)
                 .getPokemonMetadata(Mockito.intThat(i -> i < 0 || i > 150));
+    }
 
-
-
+    @Test
+    public void testGetPokemonMetadata() throws PokedexException{
         assertEquals(pmd1, pmdp.getPokemonMetadata(0));
         assertEquals(pmd2, pmdp.getPokemonMetadata(133));
         assertThrows(PokedexException.class, ()->{
