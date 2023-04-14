@@ -1,10 +1,10 @@
 version: 2.1
-
+orbs:
+  codecov: codecov/codecov@1.0.2
 jobs:
   build-and-test:
     docker:
       - image: cimg/openjdk:11.0
-
     steps:
       - checkout
       - run:
@@ -13,6 +13,7 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - codecov/upload
 workflows:
   sample:
     jobs:

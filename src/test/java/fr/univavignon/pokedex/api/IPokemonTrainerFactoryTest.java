@@ -32,6 +32,7 @@ public class IPokemonTrainerFactoryTest {
         PokemonTrainer result = pokemonTrainerFactory.createTrainer("Mike", Team.INSTINCT, pokedexFactory);
         Assert.assertEquals("Mike", result.getName());
         Assert.assertEquals(Team.INSTINCT, result.getTeam());
+        Assert.assertEquals(pokedex, result.getPokedex());
     }
 
 
