@@ -112,7 +112,16 @@ public class IPokedexTest {
 
     @Test
     public void TestSize(){
-        Assert.assertEquals(pokedex.size(), 2);
+        Assert.assertEquals(2, pokedex.size());
+    }
+
+    @Test
+    public void TestAddPokemon(){
+        int idx1 = pokedex.addPokemon(pokemon1);
+        Assert.assertEquals(0, idx1);
+
+        int idx2 = pokedex.addPokemon(pokemon2);
+        Assert.assertEquals(133, idx2);
     }
 
     @Test
