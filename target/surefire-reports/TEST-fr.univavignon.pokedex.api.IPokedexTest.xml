@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="fr.univavignon.pokedex.api.IPokedexTest" time="0.006" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="fr.univavignon.pokedex.api.IPokedexTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.17+10-LTS-269"/>
@@ -45,7 +45,7 @@
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.3\plugins\maven\lib\maven3\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-11.0.17"/>
     <property name="user.language" value="fr"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -66,8 +66,8 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestSize" time="0"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemon" time="0.001"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestAddPokemon" time="0.002"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemonsWithComparator" time="0.002"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemons" time="0.001"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemon" time="0"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestAddPokemon" time="0"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemonsWithComparator" time="0"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="TestGetPokemons" time="0"/>
 </testsuite>

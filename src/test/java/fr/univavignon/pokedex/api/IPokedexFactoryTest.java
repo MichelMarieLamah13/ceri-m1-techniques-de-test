@@ -25,19 +25,14 @@ public class IPokedexFactoryTest  {
 
     IPokedex pokedex;
 
-    Comparator<Pokemon> comparatorStamina;
-
+    PokemonComparators comparator;
     @Before
     public void start() throws PokedexException {
         pokedexFactory = Mockito.mock(IPokedexFactory.class);
         metadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
         pokemonFactory = Mockito.mock(IPokemonFactory.class);
         pokedex = Mockito.mock(IPokedex.class);
-        comparatorStamina = (o1, o2) -> {
-            Integer s1 = o1.getStamina();
-            Integer s2 = o2.getStamina();
-            return s1.compareTo(s2);
-        };
+
 
         pokemon1 = new Pokemon(
                 0,
@@ -106,25 +101,25 @@ public class IPokedexFactoryTest  {
 
 
 
-        comparatorStamina = (o1, o2) -> {
-            Integer s1 = o1.getStamina();
-            Integer s2 = o2.getStamina();
-            return s1.compareTo(s2);
-        };
+        comparator = PokemonComparators.NAME;
 
-        Mockito.when(pokedex.getPokemons(comparatorStamina)).then(
+
+        Mockito.when(pokedex.getPokemons(comparator)).then(
                 invocation -> {
                     List<Pokemon> result = new ArrayList<>();
                     result.add(pokemon2);
                     result.add(pokemon1);
+                    result.sort(comparator);
                     return result;
                 }
         );
 
+
+
     }
 
     @Test
-    public void testcreatePokedex() throws PokedexException {
+    public void testCreatePokedex() throws PokedexException {
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
 
         Assert.assertEquals(2, pokedex.size());
@@ -145,10 +140,35 @@ public class IPokedexFactoryTest  {
         Assert.assertEquals("Bulbizarre", pokemons.get(0).getName());
         Assert.assertEquals("Aquali", pokemons.get(1).getName());
 
-        List<Pokemon> sortedPokemons = pokedex.getPokemons(comparatorStamina);
+
+        List<Pokemon> sortedPokemons = pokedex.getPokemons(comparator);
         Assert.assertEquals(2, sortedPokemons.size());
+
+        Assert.assertEquals(133, sortedPokemons.get(0).getIndex());
         Assert.assertEquals("Aquali", sortedPokemons.get(0).getName());
+        Assert.assertEquals(186, sortedPokemons.get(0).getAttack());
+        Assert.assertEquals(168, sortedPokemons.get(0).getDefense());
+        Assert.assertEquals(260, sortedPokemons.get(0).getStamina());
+        Assert.assertEquals(2729, sortedPokemons.get(0).getCp());
+        Assert.assertEquals(202, sortedPokemons.get(0).getHp());
+        Assert.assertEquals(5000, sortedPokemons.get(0).getDust());
+        Assert.assertEquals(4, sortedPokemons.get(0).getCandy());
+        Assert.assertEquals(1, sortedPokemons.get(0).getIv(), 0.01);
+
+
+
+        Assert.assertEquals(0, sortedPokemons.get(1).getIndex());
         Assert.assertEquals("Bulbizarre", sortedPokemons.get(1).getName());
+        Assert.assertEquals(126, sortedPokemons.get(1).getAttack());
+        Assert.assertEquals(126, sortedPokemons.get(1).getDefense());
+        Assert.assertEquals(90, sortedPokemons.get(1).getStamina());
+        Assert.assertEquals(613, sortedPokemons.get(1).getCp());
+        Assert.assertEquals(64, sortedPokemons.get(1).getHp());
+        Assert.assertEquals(4000, sortedPokemons.get(1).getDust());
+        Assert.assertEquals(4, sortedPokemons.get(1).getCandy());
+        Assert.assertEquals(0.56, sortedPokemons.get(1).getIv(), 0.01);
+
+
     }
 }
 
