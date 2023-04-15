@@ -1,18 +1,11 @@
 package fr.univavignon.pokedex.api;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 public class IPokedexTest {
@@ -28,7 +21,7 @@ public class IPokedexTest {
     PokemonComparators comparator;
 
     @Before
-    public void start() throws PokedexException {
+    public void start() {
         metadataProvider = new PokemonMetadataProvider();
         pokemonFactory = new PokemonFactory();
         pokedex = new Pokedex(metadataProvider, pokemonFactory);
@@ -88,9 +81,7 @@ public class IPokedexTest {
 
         Assert.assertEquals(pokemon, pokemon2);
 
-        assertThrows(PokedexException.class, ()->{
-            pokedex.getPokemon(160);
-        });
+        assertThrows(PokedexException.class, ()-> pokedex.getPokemon(160));
     }
 
     @Test
@@ -124,7 +115,7 @@ public class IPokedexTest {
     }
 
     @Test
-    public void TestCreatePokemon() throws PokedexException {
+    public void TestCreatePokemon() {
         Pokemon pokemon = pokedex.createPokemon(133,2729,202,5000,4);
         Assert.assertEquals(133, pokemon.getIndex());
         Assert.assertEquals("Aquali", pokemon.getName());

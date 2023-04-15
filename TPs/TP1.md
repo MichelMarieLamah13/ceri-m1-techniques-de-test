@@ -14,7 +14,7 @@ git clone https://github.com/<YOUR_USERNAME>/ceri-m1-techniques-de-test.git
 Le projet ne contient qu’un package Java `fr.univavignon.pokedex.api`, sous le répertoire `src/main`.  
 Ce package expose l’API de notre application qui est décrite par le diagramme suivant :
 
-<p align="center">
+<p style="text-align: center">
     <img
         alt="Diagramme de classe de l'API"
         src="images/diagramme_de_classes.png"
@@ -33,7 +33,7 @@ Dans le cadre de  projet il nous faut définir :
 
 Une fois le fichier pom.xml écrit, vous pouvez importer le projet dans Eclipse, à l’aide du  menu `File > Import` :
 
-<p align="center">
+<p style="text-align:center;">
     <img
         alt="Menu d'importation d'Eclipse pour un projet Maven"
         src="images/importation_pom.png"
@@ -53,16 +53,16 @@ Nous avons maintenant un projet opérationnel pour travailler, il faut maintenan
 Pour la ligne de commande vous pouvez vous servir de la documentation fournie en introduction.  
 Pour Eclipse, il suffit de faire un clic droit sur le projet dans la vue `PackageExplorer`, puis `Team >  Commit`.
 
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p  style="color: #ffcb05; font-size: 2rem; text-align: center">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p style="text-align: center">
     <img
         alt="Dessin d'un magicarpe"
         src="images/magicarpe.png"
         title="Magicommit"
     />
 </p>
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem; text-align: center;">
 Magicommit !
 </p>

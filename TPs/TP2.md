@@ -5,7 +5,7 @@
 Nous avons un projet compatible avec Maven, nous allons maintenant mettre en place une intégration continue comme vu en cours. Pour cela nous allons utiliser la plateforme CircleCI.  
 Commencez par vous rendre à [cette adresse](https://circleci.com), et connectez-vous en utilisant votre compte GitHub :
 
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Capture d'écran de la page de connexion de CircleCI"
         src="images/circleci_signin.png"
@@ -15,7 +15,7 @@ Commencez par vous rendre à [cette adresse](https://circleci.com), et connectez
 
 Le tableau de bord résume l’ensemble des builds effectués pour vos projets GitHub connecté, comme le montre la capture d'écran suivante :
 
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Capture d'écran du tableau de bord de CircleCI"
         src="images/circleci_dashboard.png"
@@ -35,16 +35,16 @@ En vous aidant de la documentation en ligne, vous devez écrire un fichier `circ
 
 Une fois écrit, "commitez” et "pushez" votre fichier `circle.yml` sur votre repository et assurez vous de la bonne exécution de l'intégration continue sur le dashboard de CircleCI.
 
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem; text-align: center;">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Dessin d'un voltorbe"
         src="images/voltorbe.png"
         title="Désintégrateur"
     />
 </p>
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Désintégrateur !
 </p>

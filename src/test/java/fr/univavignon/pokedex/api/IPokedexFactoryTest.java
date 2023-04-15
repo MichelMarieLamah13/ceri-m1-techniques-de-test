@@ -1,18 +1,11 @@
 package fr.univavignon.pokedex.api;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.internal.MockitoCore;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
 
 public class IPokedexFactoryTest  {
@@ -24,15 +17,12 @@ public class IPokedexFactoryTest  {
 
     Pokemon pokemon2;
 
-    IPokedex pokedex;
-
     PokemonComparators comparator;
     @Before
     public void start() {
         pokedexFactory = new PokedexFactory();
         metadataProvider = new PokemonMetadataProvider();
         pokemonFactory = new PokemonFactory();
-        pokedex = new Pokedex(metadataProvider, pokemonFactory);
 
 
         pokemon1 = new Pokemon(
@@ -79,16 +69,10 @@ public class IPokedexFactoryTest  {
         Pokemon pokemon2 = pokedex.getPokemon(133);
         Assert.assertEquals(this.pokemon2, pokemon2);
 
-        assertThrows(PokedexException.class, ()->{
-            pokedex.getPokemon(160);
-        });
-        assertThrows(PokedexException.class, ()->{
-            pokedex.getPokemon(-1);
-        });
+        assertThrows(PokedexException.class, ()-> pokedex.getPokemon(160));
+        assertThrows(PokedexException.class, ()-> pokedex.getPokemon(-1));
 
-        assertThrows(PokedexException.class, ()->{
-            pokedex.getPokemon(13);
-        });
+        assertThrows(PokedexException.class, ()-> pokedex.getPokemon(13));
 
 
         List<Pokemon> pokemons = pokedex.getPokemons();

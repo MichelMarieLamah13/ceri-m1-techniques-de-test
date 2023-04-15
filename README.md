@@ -14,6 +14,8 @@
 
 [![codecov](https://codecov.io/gh/MichelMarieLamah13/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=6GPRDD6MJV)](https://codecov.io/gh/MichelMarieLamah13/ceri-m1-techniques-de-test)
 
+# CheckStyle
+![CheckStyle](target/site/bagdes/checkstyle-result.svg)
 # Rapports
 
 Pour avoir plus d'informations sur les modifications effectuées dans chaque

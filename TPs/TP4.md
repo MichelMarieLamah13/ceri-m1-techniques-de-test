@@ -25,16 +25,16 @@ Tout est prêt pour attaquer l’implémentation !
 Tâchez de développer les implémentation des interfaces en maintenant un niveau de qualité optimal.  
 Les détails d’implémentation pourront être discutés avec l'intervenant lors des séances de TP.
 
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Dessin d'un linoone"
         src="images/linoone.png"
         title="Badger"
     />
 </p>
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Badger !
 </p>

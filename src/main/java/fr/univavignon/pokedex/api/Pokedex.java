@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Pokedex implements IPokedex{
 
-    private List<Pokemon> pokemons;
-    private IPokemonMetadataProvider pokemonMetadaProvider;
-    private IPokemonFactory pokemonFactory;
+    private final List<Pokemon> pokemons;
+    private final IPokemonMetadataProvider pokemonMetadaProvider;
+    private final IPokemonFactory pokemonFactory;
 
     public Pokedex(IPokemonMetadataProvider pokemonMetadaProvider, IPokemonFactory pokemonFactory) {
         this.pokemonMetadaProvider = pokemonMetadaProvider;

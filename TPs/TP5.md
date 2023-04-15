@@ -14,16 +14,16 @@ Configurez votre intégration continue de manière à ce que la [Javadoc](https:
 [Ce lien](https://circleci.com/blog/deploying-documentation-to-github-pages-with-continuous-integration/) décrit une manière de le faire pour un projet en Python, mais la logique peut simplement être transférée pour un projet Java. Mais si cette méthode ne vous plaît pas libre à vous de faire autrement tant que le résultat est là.  
 Profitez également des rapports générés par checkstyle pour vérifier la couverture de votre Javadoc, ici aussi, on visera un score parfait.
 
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p  style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Dessin de Dr. Proctor"
         src="images/doctor_proctor.jpg"
         title="Doc-tor !"
     />
 </p>
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Doc-tor !
 </p>

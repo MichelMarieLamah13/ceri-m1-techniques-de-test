@@ -28,7 +28,7 @@ public enum PokemonComparators implements Comparator<Pokemon> {
 	 * 
 	 * @param delegate Delegate comparator instance.
 	 */
-	private PokemonComparators(final Comparator<Pokemon> delegate) {
+    PokemonComparators(final Comparator<Pokemon> delegate) {
 		this.delegate = delegate;
 	}
 

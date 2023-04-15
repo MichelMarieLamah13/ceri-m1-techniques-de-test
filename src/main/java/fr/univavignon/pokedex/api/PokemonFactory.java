@@ -10,7 +10,7 @@ public class PokemonFactory implements IPokemonFactory{
         int stamina;
         double iv;
 
-        PokemonMetadata metadata = null;
+        PokemonMetadata metadata;
 
         try {
             metadata = metadataProvider.getPokemonMetadata(index);

@@ -2,43 +2,16 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
 
 public class IPokemonFactoryTest {
 
     IPokemonFactory pokemonFactory;
-    Pokemon pokemon1;
-    Pokemon pokemon2;
 
     @Before
     public void start(){
         pokemonFactory = new PokemonFactory();
-        pokemon1 = new Pokemon(
-                0,
-                "Bulbizarre",
-                126,
-                126,
-                90,
-                613,
-                64,
-                4000,
-                4,
-                0.56
-        );
-        pokemon2 = new Pokemon(
-                133,
-                "Aquali",
-                186,
-                168,
-                260,
-                2729,
-                202,
-                5000,
-                4,
-                1
-        );
 
     }
 
@@ -52,8 +25,6 @@ public class IPokemonFactoryTest {
         Pokemon pokemon2Created = pokemonFactory.createPokemon(133,2729, 64, 4000, 4);
         assertEquals(133, pokemon2Created.getIndex());
 
-        assertThrows(RuntimeException.class, ()->{
-            pokemonFactory.createPokemon(160,613, 202, 5000, 4);
-        });
+        assertThrows(RuntimeException.class, ()-> pokemonFactory.createPokemon(160,613, 202, 5000, 4));
     }
 }

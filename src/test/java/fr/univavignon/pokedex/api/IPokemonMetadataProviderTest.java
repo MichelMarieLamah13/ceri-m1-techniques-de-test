@@ -2,9 +2,6 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.internal.MockitoCore;
 
 import static org.junit.Assert.*;
 
@@ -25,17 +22,11 @@ public class IPokemonMetadataProviderTest {
         assertEquals(126, result.getDefense());
         assertEquals(90, result.getStamina());
 
-        assertThrows(PokedexException.class, ()->{
-            pmdp.getPokemonMetadata(13);
-        });
+        assertThrows(PokedexException.class, ()-> pmdp.getPokemonMetadata(13));
 
-        assertThrows(PokedexException.class, ()->{
-            pmdp.getPokemonMetadata(-1);
-        });
+        assertThrows(PokedexException.class, ()-> pmdp.getPokemonMetadata(-1));
 
-        assertThrows(PokedexException.class, ()->{
-            pmdp.getPokemonMetadata(160);
-        });
+        assertThrows(PokedexException.class, ()-> pmdp.getPokemonMetadata(160));
 
     }
 }

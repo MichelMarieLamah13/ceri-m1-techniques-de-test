@@ -3,7 +3,6 @@ package fr.univavignon.pokedex.api;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class IPokemonTrainerFactoryTest {
     IPokemonTrainerFactory pokemonTrainerFactory;
@@ -15,8 +14,6 @@ public class IPokemonTrainerFactoryTest {
 
     IPokedex pokedex;
 
-    PokemonTrainer pokemonTrainer;
-
     @Before
     public void start()
     {
@@ -25,7 +22,6 @@ public class IPokemonTrainerFactoryTest {
         pokemonTrainerFactory = new PokemonTrainerFactory(metadataProvider, pokemonFactory);
         pokedexFactory = new PokedexFactory();
         pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        pokemonTrainer = new PokemonTrainer("Mike", Team.INSTINCT, pokedex);
 
     }
 

@@ -67,16 +67,16 @@ Afin d’avoir des mocks réalistes, voici deux instances de Pokémons ainsi que
 | IV         | 56%        | 100%     |
 
 
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p  style="color: #ffcb05; font-size: 2rem; text-align: center;">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p style="text-align: center;">
     <img
         alt="Dessin d'un métamorph"
         src="images/metamorph.png"
         title="Métamocker"
     />
 </p>
-<p align="center" style="color: #ffcb05; font-size: 2rem;">
+<p style="color: #ffcb05; font-size: 2rem;text-align: center;">
 Métamocker !
 </p>
