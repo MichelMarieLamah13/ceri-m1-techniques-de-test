@@ -9,6 +9,10 @@ public class IPokemonTrainerFactoryTest {
     IPokemonTrainerFactory pokemonTrainerFactory;
     IPokedexFactory pokedexFactory;
 
+    IPokemonMetadataProvider metadataProvider;
+
+    IPokemonFactory pokemonFactory;
+
     IPokedex pokedex;
 
     PokemonTrainer pokemonTrainer;
@@ -16,13 +20,12 @@ public class IPokemonTrainerFactoryTest {
     @Before
     public void start()
     {
-        pokemonTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
-        pokedexFactory = Mockito.mock(IPokedexFactory.class);
-        pokedex = Mockito.mock(IPokedex.class);
+        pokemonFactory = new PokemonFactory();
+        metadataProvider = new PokemonMetadataProvider();
+        pokemonTrainerFactory = new PokemonTrainerFactory(metadataProvider, pokemonFactory);
+        pokedexFactory = new PokedexFactory();
+        pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         pokemonTrainer = new PokemonTrainer("Mike", Team.INSTINCT, pokedex);
-
-        Mockito.when(pokemonTrainerFactory.createTrainer("Mike", Team.INSTINCT, pokedexFactory))
-                .thenReturn(pokemonTrainer);
 
     }
 
@@ -32,7 +35,7 @@ public class IPokemonTrainerFactoryTest {
         PokemonTrainer result = pokemonTrainerFactory.createTrainer("Mike", Team.INSTINCT, pokedexFactory);
         Assert.assertEquals("Mike", result.getName());
         Assert.assertEquals(Team.INSTINCT, result.getTeam());
-        Assert.assertEquals(pokedex, result.getPokedex());
+        Assert.assertEquals(0, result.getPokedex().size());
     }
 
 

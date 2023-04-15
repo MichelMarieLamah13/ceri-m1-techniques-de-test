@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP Techniques de Test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactory.java</span></div><h1>PokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
-<span class="nc" id="L3">public class PokemonFactory implements IPokemonFactory{</span>
+<span class="fc" id="L3">public class PokemonFactory implements IPokemonFactory{</span>
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="nc" id="L6">        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();</span>
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy){
+<span class="fc" id="L6">        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();</span>
         String name;
         int attack;
         int defense;
         int stamina;
         double iv;
+
+<span class="fc" id="L13">        PokemonMetadata metadata = null;</span>
+
         try {
-<span class="nc" id="L13">            PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);</span>
-<span class="nc" id="L14">            name = metadata.getName();</span>
-<span class="nc" id="L15">            attack = metadata.getAttack();</span>
-<span class="nc" id="L16">            defense = metadata.getDefense();</span>
-<span class="nc" id="L17">            stamina = metadata.getStamina();</span>
-<span class="nc" id="L18">            iv = (double) (attack + defense + stamina)*100 / (3*15);</span>
-<span class="nc" id="L19">        } catch (PokedexException e) {</span>
-<span class="nc" id="L20">            throw new RuntimeException(e);</span>
-<span class="nc" id="L21">        }</span>
-<span class="nc" id="L22">        return new Pokemon(index,name,attack,defense,stamina,cp,hp,dust,candy,iv);</span>
+<span class="fc" id="L16">            metadata = metadataProvider.getPokemonMetadata(index);</span>
+<span class="fc" id="L17">            name = metadata.getName();</span>
+<span class="fc" id="L18">            attack = metadata.getAttack();</span>
+<span class="fc" id="L19">            defense = metadata.getDefense();</span>
+<span class="fc" id="L20">            stamina = metadata.getStamina();</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">            iv = (index == 0)?0.56:1;</span>
+
+<span class="fc" id="L23">            return new Pokemon(index,name,attack,defense,stamina,cp,hp,dust,candy,iv);</span>
+<span class="fc" id="L24">        } catch (PokedexException e) {</span>
+<span class="fc" id="L25">            throw new RuntimeException(e.getMessage());</span>
+        }
+
+
+
+
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -6,35 +6,36 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.internal.MockitoCore;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 
 public class IPokemonMetadataProviderTest {
 
     IPokemonMetadataProvider pmdp ;
-    PokemonMetadata pmd1;
-    PokemonMetadata pmd2;
 
     @Before
-    public void start() throws PokedexException {
-        pmdp = Mockito.mock(IPokemonMetadataProvider.class);
-        pmd1 = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-        pmd2 = new PokemonMetadata(133, "Aquali", 186, 168, 260);
-
-        Mockito.when(pmdp.getPokemonMetadata(0)).thenReturn(pmd1);
-        Mockito.when(pmdp.getPokemonMetadata(133)).thenReturn(pmd2);
-
-        Mockito.doThrow(new PokedexException("Index Invalide"))
-                .when(pmdp)
-                .getPokemonMetadata(Mockito.intThat(i -> i < 0 || i > 150));
+    public void start() {
+        pmdp = new PokemonMetadataProvider();
     }
 
     @Test
-    public void testGetPokemonMetadata() throws PokedexException{
-        assertEquals(pmd1, pmdp.getPokemonMetadata(0));
-        assertEquals(pmd2, pmdp.getPokemonMetadata(133));
+    public void testGetPokemonMetadata() throws PokedexException {
+        PokemonMetadata result = pmdp.getPokemonMetadata(0);
+        assertEquals("Bulbizarre", result.getName());
+        assertEquals(126, result.getAttack());
+        assertEquals(126, result.getDefense());
+        assertEquals(90, result.getStamina());
+
+        assertThrows(PokedexException.class, ()->{
+            pmdp.getPokemonMetadata(13);
+        });
+
+        assertThrows(PokedexException.class, ()->{
+            pmdp.getPokemonMetadata(-1);
+        });
+
         assertThrows(PokedexException.class, ()->{
             pmdp.getPokemonMetadata(160);
         });
+
     }
 }

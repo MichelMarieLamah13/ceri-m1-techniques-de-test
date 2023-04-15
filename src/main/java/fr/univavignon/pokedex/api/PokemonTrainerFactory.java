@@ -15,20 +15,4 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
         return new PokemonTrainer(name, team, pokedex);
     }
-
-    public IPokemonMetadataProvider getMetadataProvider() {
-        return metadataProvider;
-    }
-
-    public void setMetadataProvider(IPokemonMetadataProvider metadataProvider) {
-        this.metadataProvider = metadataProvider;
-    }
-
-    public IPokemonFactory getPokemonFactory() {
-        return pokemonFactory;
-    }
-
-    public void setPokemonFactory(IPokemonFactory pokemonFactory) {
-        this.pokemonFactory = pokemonFactory;
-    }
 }

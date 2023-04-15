@@ -11,58 +11,58 @@ public class Pokedex implements IPokedex{
     private IPokemonMetadataProvider pokemonMetadaProvider;
     private IPokemonFactory pokemonFactory;
 
-<span class="nc" id="L14">    public Pokedex(IPokemonMetadataProvider pokemonMetadaProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="nc" id="L15">        this.pokemonMetadaProvider = pokemonMetadaProvider;</span>
-<span class="nc" id="L16">        this.pokemonFactory = pokemonFactory;</span>
-<span class="nc" id="L17">        this.pokemons = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L14">    public Pokedex(IPokemonMetadataProvider pokemonMetadaProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L15">        this.pokemonMetadaProvider = pokemonMetadaProvider;</span>
+<span class="fc" id="L16">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L17">        this.pokemons = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public int size() {
-<span class="nc" id="L22">        return this.pokemons.size();</span>
+<span class="fc" id="L22">        return this.pokemons.size();</span>
     }
 
     @Override
     public int addPokemon(Pokemon pokemon) {
-<span class="nc" id="L27">        pokemons.add(pokemon);</span>
-<span class="nc" id="L28">        return pokemon.getIndex();</span>
+<span class="fc" id="L27">        pokemons.add(pokemon);</span>
+<span class="fc" id="L28">        return pokemon.getIndex();</span>
     }
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-<span class="nc bnc" id="L33" title="All 4 branches missed.">        if (id &lt; 0 || id &gt; 150){</span>
-<span class="nc" id="L34">            throw new PokedexException(&quot;Invalid ID&quot;);</span>
+<span class="fc bfc" id="L33" title="All 4 branches covered.">        if (id &lt; 0 || id &gt; 150){</span>
+<span class="fc" id="L34">            throw new PokedexException(&quot;Invalid ID&quot;);</span>
         }else{
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            for (Pokemon pokemon:pokemons) {</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">                if (pokemon.getIndex() == id){</span>
-<span class="nc" id="L38">                    return pokemon;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            for (Pokemon pokemon:pokemons) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                if (pokemon.getIndex() == id){</span>
+<span class="fc" id="L38">                    return pokemon;</span>
                 }
-<span class="nc" id="L40">            }</span>
+<span class="fc" id="L40">            }</span>
         }
-<span class="nc" id="L42">        return null;</span>
+<span class="fc" id="L42">        throw new PokedexException(&quot;Ce pokemon n'existe pas&quot;);</span>
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="nc" id="L47">        return pokemons;</span>
+<span class="fc" id="L47">        return pokemons;</span>
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="nc" id="L52">        List&lt;Pokemon&gt; result = pokemons;</span>
-<span class="nc" id="L53">        result.sort(order);</span>
-<span class="nc" id="L54">        return result;</span>
+<span class="fc" id="L52">        List&lt;Pokemon&gt; result = pokemons;</span>
+<span class="fc" id="L53">        result.sort(order);</span>
+<span class="fc" id="L54">        return result;</span>
     }
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
 
-<span class="nc" id="L60">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+<span class="fc" id="L60">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
     }
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="nc" id="L65">        return pokemonMetadaProvider.getPokemonMetadata(index);</span>
+<span class="fc" id="L65">        return pokemonMetadaProvider.getPokemonMetadata(index);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
