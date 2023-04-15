@@ -2,24 +2,16 @@ package fr.univavignon.pokedex.api;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.javafaker.Faker;
 
 public class PokemonMetadataProvider implements IPokemonMetadataProvider{
-    public static List<PokemonMetadata> metadataList = new ArrayList<>();
+    public static List<PokemonMetadata> metadataList;
 
     public PokemonMetadataProvider() {
-
-        if(metadataList.isEmpty()){
-            Faker faker = new Faker();
-            for (int i = 0; i < 150; i++) {
-                String name = faker.pokemon().name();
-                int attack = faker.number().numberBetween(0,15);
-                int defense = faker.number().numberBetween(0,15);
-                int stamina = faker.number().numberBetween(0,15);
-                PokemonMetadata metadata = new PokemonMetadata(i, name, attack, defense, stamina);
-                metadataList.add(metadata);
-            }
-        }
+        metadataList = new ArrayList<>();
+        PokemonMetadata pmd1 = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+        PokemonMetadata pmd2 = new PokemonMetadata(133, "Aquali", 186, 168, 260);
+        metadataList.add(pmd1);
+        metadataList.add(pmd2);
     }
 
     @Override
@@ -33,7 +25,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
                 }
             }
         }
-        return null;
+        throw new PokedexException("Ce Pokemon n'existe pas");
     }
 
 }

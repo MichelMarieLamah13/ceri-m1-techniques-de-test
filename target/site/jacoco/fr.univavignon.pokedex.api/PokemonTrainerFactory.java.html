@@ -5,31 +5,15 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
     private IPokemonMetadataProvider metadataProvider;
     private IPokemonFactory pokemonFactory;
 
-<span class="nc" id="L8">    public PokemonTrainerFactory(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="nc" id="L9">        this.metadataProvider = metadataProvider;</span>
-<span class="nc" id="L10">        this.pokemonFactory = pokemonFactory;</span>
-<span class="nc" id="L11">    }</span>
+<span class="fc" id="L8">    public PokemonTrainerFactory(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L9">        this.metadataProvider = metadataProvider;</span>
+<span class="fc" id="L10">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L11">    }</span>
 
     @Override
     public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
-<span class="nc" id="L15">        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
-<span class="nc" id="L16">        return new PokemonTrainer(name, team, pokedex);</span>
+<span class="fc" id="L15">        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);</span>
+<span class="fc" id="L16">        return new PokemonTrainer(name, team, pokedex);</span>
     }
-
-    public IPokemonMetadataProvider getMetadataProvider() {
-<span class="nc" id="L20">        return metadataProvider;</span>
-    }
-
-    public void setMetadataProvider(IPokemonMetadataProvider metadataProvider) {
-<span class="nc" id="L24">        this.metadataProvider = metadataProvider;</span>
-<span class="nc" id="L25">    }</span>
-
-    public IPokemonFactory getPokemonFactory() {
-<span class="nc" id="L28">        return pokemonFactory;</span>
-    }
-
-    public void setPokemonFactory(IPokemonFactory pokemonFactory) {
-<span class="nc" id="L32">        this.pokemonFactory = pokemonFactory;</span>
-<span class="nc" id="L33">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

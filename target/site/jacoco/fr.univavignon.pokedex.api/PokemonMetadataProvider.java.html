@@ -2,38 +2,30 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.javafaker.Faker;
 
 public class PokemonMetadataProvider implements IPokemonMetadataProvider{
-<span class="nc" id="L8">    public static List&lt;PokemonMetadata&gt; metadataList = new ArrayList&lt;&gt;();</span>
+    public static List&lt;PokemonMetadata&gt; metadataList;
 
-<span class="nc" id="L10">    public PokemonMetadataProvider() {</span>
-
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if(metadataList.isEmpty()){</span>
-<span class="nc" id="L13">            Faker faker = new Faker();</span>
-<span class="nc bnc" id="L14" title="All 2 branches missed.">            for (int i = 0; i &lt; 150; i++) {</span>
-<span class="nc" id="L15">                String name = faker.pokemon().name();</span>
-<span class="nc" id="L16">                int attack = faker.number().numberBetween(0,15);</span>
-<span class="nc" id="L17">                int defense = faker.number().numberBetween(0,15);</span>
-<span class="nc" id="L18">                int stamina = faker.number().numberBetween(0,15);</span>
-<span class="nc" id="L19">                PokemonMetadata metadata = new PokemonMetadata(i, name, attack, defense, stamina);</span>
-<span class="nc" id="L20">                metadataList.add(metadata);</span>
-            }
-        }
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L9">    public PokemonMetadataProvider() {</span>
+<span class="fc" id="L10">        metadataList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L11">        PokemonMetadata pmd1 = new PokemonMetadata(0, &quot;Bulbizarre&quot;, 126, 126, 90);</span>
+<span class="fc" id="L12">        PokemonMetadata pmd2 = new PokemonMetadata(133, &quot;Aquali&quot;, 186, 168, 260);</span>
+<span class="fc" id="L13">        metadataList.add(pmd1);</span>
+<span class="fc" id="L14">        metadataList.add(pmd2);</span>
+<span class="fc" id="L15">    }</span>
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="nc bnc" id="L27" title="All 4 branches missed.">        if (index &lt; 0 || index &gt; 150){</span>
-<span class="nc" id="L28">            throw new PokedexException(&quot;Invalid ID&quot;);</span>
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (index &lt; 0 || index &gt; 150){</span>
+<span class="fc" id="L20">            throw new PokedexException(&quot;Invalid ID&quot;);</span>
         }else{
-<span class="nc bnc" id="L30" title="All 2 branches missed.">            for (PokemonMetadata pokemonMetadata:metadataList) {</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                if(pokemonMetadata.getIndex() == index){</span>
-<span class="nc" id="L32">                    return pokemonMetadata;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            for (PokemonMetadata pokemonMetadata:metadataList) {</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">                if(pokemonMetadata.getIndex() == index){</span>
+<span class="fc" id="L24">                    return pokemonMetadata;</span>
                 }
-<span class="nc" id="L34">            }</span>
+<span class="fc" id="L26">            }</span>
         }
-<span class="nc" id="L36">        return null;</span>
+<span class="fc" id="L28">        throw new PokedexException(&quot;Ce Pokemon n'existe pas&quot;);</span>
     }
 
 }

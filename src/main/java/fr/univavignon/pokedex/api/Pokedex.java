@@ -39,7 +39,7 @@ public class Pokedex implements IPokedex{
                 }
             }
         }
-        return null;
+        throw new PokedexException("Ce pokemon n'existe pas");
     }
 
     @Override

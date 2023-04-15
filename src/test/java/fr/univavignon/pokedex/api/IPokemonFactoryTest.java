@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class IPokemonFactoryTest {
 
@@ -14,7 +14,7 @@ public class IPokemonFactoryTest {
 
     @Before
     public void start(){
-        pokemonFactory = Mockito.mock(IPokemonFactory.class);
+        pokemonFactory = new PokemonFactory();
         pokemon1 = new Pokemon(
                 0,
                 "Bulbizarre",
@@ -40,12 +40,6 @@ public class IPokemonFactoryTest {
                 1
         );
 
-        Mockito.when(pokemonFactory.createPokemon(133,2729, 64, 4000, 4))
-                .thenReturn(pokemon2);
-
-        Mockito.when(pokemonFactory.createPokemon(0,613, 202, 5000, 4))
-                .thenReturn(pokemon1);
-
     }
 
     @Test
@@ -58,5 +52,8 @@ public class IPokemonFactoryTest {
         Pokemon pokemon2Created = pokemonFactory.createPokemon(133,2729, 64, 4000, 4);
         assertEquals(133, pokemon2Created.getIndex());
 
+        assertThrows(RuntimeException.class, ()->{
+            pokemonFactory.createPokemon(160,613, 202, 5000, 4);
+        });
     }
 }
