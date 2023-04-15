@@ -31,5 +31,5 @@ TP, merci de bien vouloir jeter un coup d'oeil aux rapports ci-dessous.
 
 # JavaDoc
 
-[La documentation](https://MichelMarieLamah13.github.io/ceri-m1-techniques-de-test)
+La documentation: https://MichelMarieLamah13.github.io/ceri-m1-techniques-de-test
 
