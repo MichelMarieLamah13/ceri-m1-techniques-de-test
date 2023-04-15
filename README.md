@@ -16,6 +16,7 @@
 
 # CheckStyle
 ![CheckStyle](target/site/bagdes/checkstyle-result.svg)
+
 # Rapports
 
 Pour avoir plus d'informations sur les modifications effectuées dans chaque
@@ -27,3 +28,8 @@ TP, merci de bien vouloir jeter un coup d'oeil aux rapports ci-dessous.
 - [TP4](TPs/TP04_LAMAH.pdf)
 - TP5
 - TP6
+
+# JavaDoc
+
+[La documentation](https://MichelMarieLamah13.github.io/ceri-m1-techniques-de-test)
+
