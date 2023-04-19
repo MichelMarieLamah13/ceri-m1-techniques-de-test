@@ -24,9 +24,5 @@ public class PokemonFactory implements IPokemonFactory{
         } catch (PokedexException e) {
             throw new RuntimeException(e.getMessage());
         }
-
-
-
-
     }
 }
