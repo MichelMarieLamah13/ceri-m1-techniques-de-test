@@ -30,7 +30,7 @@ TP, merci de bien vouloir jeter un coup d'oeil aux rapports ci-dessous.
 - [TP3](TPs/TP03_LAMAH.pdf)
 - [TP4](TPs/TP04_LAMAH.pdf)
 - [TP5](TPs/TP05_LAMAH.pdf)
-- TP6
+- [TP6](TPs/TP06_LAMAH.pdf)
 
 # JavaDoc
 
